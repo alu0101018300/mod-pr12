@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/execmd', (req: any, res: any) => {
   if (!req.query.cmd || !req.query.args) {
-    res.send('<h1>ERROR 404</h1>');
+    res.send('<h1>Comando u opciones No Validas</h1>');
   } else {
     functionCommand(req.query.cmd as string, req.query.args as string, (err, data) => {
       if (err) {

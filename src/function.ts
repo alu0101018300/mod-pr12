@@ -12,14 +12,14 @@ export type ResponseType = {
 export const functionCommand = (cmd: string, argvs: string, cb: (err: string | undefined, 
   res: ResponseType | undefined) => void) => {
 
-  const cmd_data = spawn(cmd, [argvs]);
+  const cmd_result = spawn(cmd, [argvs]);
   let result: string = '';
 
-  cmd_data.on('error', (err) => {
+  cmd_result.on('error', (err) => {
   cb(err.message, undefined);
   });
 
-  cmd_data.on('data', (data) => {
+  cmd_result.on('data', (data) => {
   result = data.toString();
   });
 
